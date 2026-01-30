@@ -12,15 +12,15 @@ const NewCompanion = async () => {
     const canCreateCompanion = await newCompanionPermissions();
 
     return (
-        <main className="min-h-screen bg-zinc-950 text-zinc-200 flex flex-col items-center pt-20 p-6">
+        <main className="min-h-screen bg-zinc-950 text-zinc-200 flex flex-col items-center pt-24 p-6">
             {canCreateCompanion ? (
                 <article className="w-full max-w-2xl gap-8 flex flex-col">
-                    <h1 className="text-3xl font-semibold tracking-tight text-white text-center">Companion Builder</h1>
+                    <h1 className="text-3xl font-semibold tracking-tight text-white text-center mb-4">Companion Builder</h1>
 
                     <CompanionForm />
                 </article>
             ) : (
-                <article className="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl shadow-xl max-w-md text-center flex flex-col items-center gap-6 backdrop-blur-sm">
+                <article className="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl shadow-2xl max-w-md text-center flex flex-col items-center gap-6">
                     <div className="relative">
                         <Image src="/images/limit.svg" alt="Companion limit reached" width={200} height={200} className="rounded-lg opacity-80" />
                     </div>
