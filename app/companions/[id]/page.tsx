@@ -1,12 +1,12 @@
-import {getCompanion} from "@/lib/actions/companion.actions";
-import {currentUser} from "@clerk/nextjs/server";
-import {redirect} from "next/navigation";
-import {getSubjectColor} from "@/lib/utils";
+import { getCompanion } from "@/lib/actions/companion.actions";
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import { getSubjectColor } from "@/lib/utils";
 import Image from "next/image";
 import CompanionComponent from "@/components/CompanionComponent";
 
 interface CompanionSessionPageProps {
-    params: Promise<{ id: string}>;
+    params: Promise<{ id: string }>;
 }
 
 const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
@@ -16,30 +16,31 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
 
     const { name, subject, title, topic, duration } = companion;
 
-    if(!user) redirect('/sign-in');
-    if(!name) redirect('/companions')
+    if (!user) redirect('/sign-in');
+    if (!name) redirect('/companions')
 
     return (
-        <main>
-            <article className="flex rounded-border justify-between p-6 max-md:flex-col">
-                <div className="flex items-center gap-2">
-                    <div className="size-[72px] flex items-center justify-center rounded-lg max-md:hidden" style={{ backgroundColor: getSubjectColor(subject)}}>
-                        <Image src={`/icons/${subject}.svg`} alt={subject} width={35} height={35} />
+        <main className="min-h-screen bg-zinc-950 p-6 md:p-12 font-sans text-zinc-200">
+            <article className="flex bg-zinc-900/50 border border-zinc-800 rounded-2xl justify-between p-6 max-md:flex-col backdrop-blur-sm shadow-sm mb-8 items-center">
+                <div className="flex items-center gap-4">
+                    <div className="size-[64px] flex items-center justify-center rounded-xl bg-zinc-800/50 border border-zinc-700/50 max-md:hidden">
+                        <Image src={`/icons/${subject}.svg`} alt={subject} width={32} height={32} className="opacity-80" />
                     </div>
 
-                    <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-2">
-                            <p className="font-bold text-2xl">
+                    <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-3">
+                            <p className="font-semibold text-xl text-zinc-100 tracking-tight">
                                 {name}
                             </p>
-                            <div className="subject-badge max-sm:hidden">
+                            <div className="bg-zinc-800 text-zinc-400 border border-zinc-700 px-2.5 py-0.5 rounded-md text-xs font-medium uppercase tracking-wider max-sm:hidden">
                                 {subject}
                             </div>
                         </div>
-                        <p className="text-lg">{topic}</p>
+                        <p className="text-zinc-400 text-sm">{topic}</p>
                     </div>
                 </div>
-                <div className="items-start text-2xl max-md:hidden">
+                <div className="flex items-center gap-2 text-zinc-500 font-medium text-sm border border-zinc-800 bg-zinc-900/50 px-3 py-1.5 rounded-lg max-md:hidden">
+                    <Image src="/icons/clock.svg" alt="duration" width={14} height={14} className="opacity-60" />
                     {duration} minutes
                 </div>
             </article>
