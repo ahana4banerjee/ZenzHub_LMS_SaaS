@@ -33,7 +33,11 @@ const CompanionCard = ({
     }
   };
   return (
-    <article className="companion-card" style={{ backgroundColor: color }}>
+    <article
+      className="companion-card w-full h-full flex flex-col justify-between"
+      style={{ backgroundColor: color }}
+    >
+
       <div className="flex justify-between items-center">
         <div className="subject-badge">{subject}</div>
         <button className="companion-bookmark" onClick={handleBookmark}>
