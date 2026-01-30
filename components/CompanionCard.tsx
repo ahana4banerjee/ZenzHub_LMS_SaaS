@@ -33,12 +33,14 @@ const CompanionCard = ({
     }
   };
   return (
-    <article className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-700 hover:shadow-lg transition-all group relative overflow-hidden flex flex-col h-full" style={{ borderTopWidth: '4px', borderTopColor: color }}>
-      <div className="flex justify-between items-start mb-4">
-        <div className="bg-zinc-800/80 text-zinc-400 border border-zinc-700/50 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">
-          {subject}
-        </div>
-        <button className="text-zinc-500 hover:text-zinc-300 transition-colors opacity-0 group-hover:opacity-100" onClick={handleBookmark}>
+    <article
+      className="companion-card w-full h-full flex flex-col justify-between"
+      style={{ backgroundColor: color }}
+    >
+
+      <div className="flex justify-between items-center">
+        <div className="subject-badge">{subject}</div>
+        <button className="companion-bookmark" onClick={handleBookmark}>
           <Image
             src={
               bookmarked ? "/icons/bookmark-filled.svg" : "/icons/bookmark.svg"
