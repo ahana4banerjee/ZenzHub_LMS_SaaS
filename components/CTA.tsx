@@ -24,10 +24,28 @@ const Cta = () => {
       />
 
       <Link href="/companions/new" className="w-full">
-        <button className="btn-primary w-full justify-center">
+        <button
+          className="
+            btn-primary
+            w-full
+            justify-center
+            text-white
+            font-medium
+            transition-all
+            duration-300
+            hover:bg-cyan-500
+            hover:shadow-[0_0_30px_rgba(34,211,238,0.35)]
+            hover:-translate-y-0.5
+            active:translate-y-0
+            active:shadow-[0_0_15px_rgba(34,211,238,0.25)]
+          "
+        >
           <Image src="/icons/plus.svg" alt="plus" width={12} height={12} />
-          <span>Build a New Companion</span>
+          <span className="text-white/95 tracking-wide">
+            Build a New Companion
+          </span>
         </button>
+
       </Link>
     </section>
   );
