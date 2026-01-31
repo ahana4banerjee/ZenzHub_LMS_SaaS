@@ -111,7 +111,7 @@ export const newCompanionPermissions = async () => {
     const { userId, has } = await auth();
     if (!userId) return false;
 
-    const supabase = createSupabaseClient();
+    const supabase = await createSupabaseClient();
 
     // 1️⃣ Unlimited for Pro
     if (has({ plan: "pro" })) {

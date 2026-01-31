@@ -11,6 +11,10 @@ interface CompanionSessionPageProps {
 
 const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
     const { id } = await params;
+
+    // Ignore favicon or static assets that might be caught by [id]
+    if (id === 'favicon.ico') return null;
+
     const companion = await getCompanion(id);
     const user = await currentUser();
 
