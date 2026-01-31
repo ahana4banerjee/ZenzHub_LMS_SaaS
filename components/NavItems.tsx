@@ -23,10 +23,10 @@ const NavItems = () => {
             key={label}
             href={href}
             className={cn(
-              "text-sm font-medium transition-colors hover:text-primary",
+              "text-sm font-medium",
               isActive
-                ? "text-primary"
-                : "text-muted-foreground"
+                ? "text-cyan-600"
+                : "text-black/70 hover:text-cyan-500"
             )}
           >
             {label}

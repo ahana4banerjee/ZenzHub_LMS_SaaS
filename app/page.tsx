@@ -12,15 +12,29 @@ const Page = async () => {
   const recentSessionsCompanions = await getRecentSessions(10);
 
   return (
-    <main className="min-h-screen bg-black text-white relative flex flex-col items-center py-20 px-4 sm:px-8">
-      {/* Background Glow Effect */}
-      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-teal-900/40 blur-[100px] rounded-full pointer-events-none" />
+    <main className="relative min-h-screen overflow-hidden bg-black text-white flex flex-col items-center py-24 px-4 sm:px-8">
+      
+      {/* Cyan Ombre / Ambient Glow (background only) */}
+      <div className="pointer-events-none absolute inset-0">
+        {/* top glow */}
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full 
+                        bg-cyan-500/25 blur-[140px]" />
+        {/* subtle side glow */}
+        <div className="absolute top-1/3 -right-40 w-[600px] h-[400px] rounded-full 
+                        bg-cyan-400/15 blur-[120px]" />
+      </div>
 
       {/* Main Content */}
-      <div className="relative z-10 w-full max-w-7xl space-y-20 flex flex-col items-center">
-        
-        {/* Centered Serif Heading */}
-        <h1 className="text-5xl md:text-7xl font-serif text-center font-medium tracking-tight text-white drop-shadow-lg">
+      <div className="relative z-10 w-full max-w-7xl space-y-24 flex flex-col items-center">
+
+        {/* Heading */}
+        <h1
+          className="
+            text-center text-5xl md:text-7xl font-medium tracking-tight
+            text-white
+          "
+          style={{ fontFamily: "Satoshi, system-ui, sans-serif" }}
+        >
           Popular Companions
         </h1>
 
@@ -35,24 +49,38 @@ const Page = async () => {
           ))}
         </section>
 
-        {/* Bottom Section - Balanced Split Layout */}
+        {/* Bottom Section */}
         <section className="w-full flex flex-col lg:flex-row gap-8 items-stretch">
-            
-            {/* List - Width reduced to 50% on large screens */}
-            <div className="w-full lg:w-1/2 bg-neutral-900/50 border border-neutral-800 rounded-3xl p-6 backdrop-blur-md">
-                <CompanionsList
-                    title="Recently completed sessions"
-                    companions={recentSessionsCompanions}
-                    classNames="w-full"
-                />
-            </div>
 
-            {/* CTA - Expands to take the rest of the space (Rectangle) */}
-            <div className="w-full lg:flex-1">
-                <div className="h-full w-full bg-neutral-900/30 border border-neutral-800 rounded-3xl overflow-hidden flex flex-col justify-center">
-                    <CTA />
-                </div>
+          {/* Recent Sessions */}
+          <div className="
+            w-full lg:w-1/2
+            rounded-3xl
+            bg-white/5
+            border border-white/10
+            backdrop-blur-md
+            p-6
+          ">
+            <CompanionsList
+              title="Recently completed sessions"
+              companions={recentSessionsCompanions}
+              classNames="w-full"
+            />
+          </div>
+
+          {/* CTA */}
+          <div className="w-full lg:flex-1">
+            <div className="
+              h-full w-full
+              rounded-3xl
+              bg-gradient-to-br from-cyan-500/10 via-white/5 to-transparent
+              border border-white/10
+              backdrop-blur-md
+              flex flex-col justify-center
+            ">
+              <CTA />
             </div>
+          </div>
 
         </section>
       </div>

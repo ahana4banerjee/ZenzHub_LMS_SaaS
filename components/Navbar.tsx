@@ -7,10 +7,12 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 relative overflow-hidden">
       {/* Ombre background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(13,148,136,0.35)_0%,_rgba(0,0,0,0.85)_55%,_rgba(0,0,0,1)_100%)]" />
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+      {/* Soft cyan / off-white navbar background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.35)_0%,_rgba(255,255,255,0.85)_60%,_rgba(255,255,255,0.95)_100%)]" />
+      <div className="absolute inset-0 backdrop-blur-md bg-white/70" />
 
-      <nav className="navbar relative z-10 text-white">
+
+      <nav className="navbar relative z-10 text-black">
         {/* Logo */}
         <Link href="/">
           <div className="flex items-center gap-3 cursor-pointer">
@@ -33,7 +35,7 @@ const Navbar = () => {
 
           <SignedOut>
             <SignInButton>
-              <button className="btn-signin border-white/30 text-white hover:bg-white/10">
+              <button className="btn-signin text-black hover:text-cyan-500">
                 Sign In
               </button>
             </SignInButton>
