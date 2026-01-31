@@ -38,19 +38,53 @@ const SubjectFilter = () => {
 
     return (
         <Select onValueChange={setSubject} value={subject}>
-            <SelectTrigger className="w-[180px] capitalize">
-                <SelectValue placeholder="Subject" />
+            <SelectTrigger
+            className="
+                w-[180px]
+                capitalize
+                bg-white/5
+                border border-white/10
+                text-white
+                backdrop-blur-md
+                rounded-xl
+                transition-all
+                hover:border-cyan-400/40
+                focus:ring-2
+                focus:ring-cyan-500/50
+            "
+            >
+            <SelectValue placeholder="Subject" />
             </SelectTrigger>
-            <SelectContent>
-                <SelectItem value="all">All subjects</SelectItem>
-                {subjects.map((subject) => (
-                    <SelectItem key={subject} value={subject} className="capitalize">
-                        {subject}
-                    </SelectItem>
-                ))}
+
+            <SelectContent
+            className="
+                bg-black/90
+                backdrop-blur-xl
+                border border-white/10
+                rounded-xl
+                text-white
+            "
+            >
+            <SelectItem
+                value="all"
+                className="capitalize focus:bg-cyan-500/20 focus:text-white"
+            >
+                All subjects
+            </SelectItem>
+
+            {subjects.map((subject) => (
+                <SelectItem
+                key={subject}
+                value={subject}
+                className="capitalize focus:bg-cyan-500/20 focus:text-white"
+                >
+                {subject}
+                </SelectItem>
+            ))}
             </SelectContent>
         </Select>
     );
+
 };
 
 export default SubjectFilter;

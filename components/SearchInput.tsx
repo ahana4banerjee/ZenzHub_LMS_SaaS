@@ -37,15 +37,44 @@ const SearchInput = () => {
     }, [searchQuery, router, searchParams, pathname]);
 
     return (
-        <div className="relative border border-zinc-800 bg-zinc-900 rounded-xl items-center flex gap-3 px-3 py-2.5 h-11 w-full md:min-w-[300px] shadow-sm focus-within:ring-2 focus-within:ring-zinc-700 transition-all">
-            <Image src="/icons/search.svg" alt="search" width={16} height={16} className="opacity-40" />
+        <div
+            className="
+            relative
+            flex items-center gap-3
+            h-11 w-full md:min-w-[300px]
+            rounded-xl
+            px-3 py-2.5
+            bg-white/5
+            border border-white/10
+            backdrop-blur-md
+            transition-all
+            focus-within:ring-2
+            focus-within:ring-cyan-500/50
+            hover:border-cyan-400/40
+            "
+        >
+            <Image
+            src="/icons/search.svg"
+            alt="search"
+            width={16}
+            height={16}
+            className="opacity-50"
+            />
             <input
-                placeholder="Search companions..."
-                className="outline-none bg-transparent text-zinc-100 placeholder:text-zinc-500 text-sm w-full"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search companions..."
+            className="
+                w-full
+                bg-transparent
+                outline-none
+                text-sm
+                text-white
+                placeholder:text-white/50
+            "
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             />
         </div>
-    )
+    );
+
 }
 export default SearchInput
