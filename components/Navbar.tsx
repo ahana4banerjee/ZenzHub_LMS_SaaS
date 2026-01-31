@@ -15,10 +15,10 @@ const Navbar = () => {
         <Link href="/">
           <div className="flex items-center gap-3 cursor-pointer">
             <Image
-              src="/images/logo.svg"
+              src="/Zenzubassets/genz.jpg"
               alt="Zenzhub logo"
-              width={42}
-              height={40}
+              width={40}
+              height={30}
               priority
             />
             <span className="text-lg font-semibold tracking-tight">
