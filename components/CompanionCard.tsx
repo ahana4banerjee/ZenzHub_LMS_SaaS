@@ -35,11 +35,14 @@ const CompanionCard = ({
   return (
     <article
       className="companion-card w-full h-full flex flex-col justify-between"
-      style={{ backgroundColor: color }}
+      
     >
 
       <div className="flex justify-between items-center">
-        <div className="subject-badge">{subject}</div>
+        <div className="subject-badge transition-all hover:bg-black/70 hover:text-cyan-300 hover:border-cyan-400/40">
+  {subject}
+</div>
+
         <button className="companion-bookmark" onClick={handleBookmark}>
           <Image
             src={
@@ -70,9 +73,14 @@ const CompanionCard = ({
       </div>
 
       <Link href={`/companions/${id}`} className="w-full mt-auto">
-        <button className="w-full bg-zinc-800 text-zinc-200 hover:bg-zinc-700 hover:text-white transition-all rounded-lg py-2.5 font-medium text-sm border border-zinc-700/50">
-          Launch Lesson
-        </button>
+        <button className="w-full rounded-lg py-2.5 font-medium text-sm border border-cyan-400/20
+  bg-zinc-900 text-cyan-200
+  hover:bg-cyan-400/10 hover:border-cyan-400/60 hover:text-cyan-100
+  transition-all duration-300
+  hover:shadow-[0_0_20px_rgba(34,211,238,0.25)]">
+  Launch Lesson
+</button>
+
       </Link>
     </article>
   );
