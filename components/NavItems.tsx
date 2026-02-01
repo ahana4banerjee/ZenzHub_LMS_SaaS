@@ -10,11 +10,11 @@ const navItems = [
   { label: 'My Journey', href: '/my-journey' },
 ];
 
-const NavItems = () => {
+const NavItems = ({ className }: { className?: string }) => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center gap-6">
+    <nav className={cn("flex items-center gap-6", className)}>
       {navItems.map(({ label, href }) => {
         const isActive = pathname === href;
 
@@ -23,7 +23,7 @@ const NavItems = () => {
             key={label}
             href={href}
             className={cn(
-              "text-sm font-medium",
+              "text-sm font-medium transition-colors",
               isActive
                 ? "text-cyan-600"
                 : "text-black/70 hover:text-cyan-500"
